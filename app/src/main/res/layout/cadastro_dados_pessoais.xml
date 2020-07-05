@@ -55,9 +55,9 @@
         android:background="@drawable/rounded"
         android:text="Termos de confirmação"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="@+id/editTextPhone"
-        app:layout_constraintStart_toStartOf="@+id/editTextPhone"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+        app:layout_constraintEnd_toEndOf="@+id/txtPhone"
+        app:layout_constraintStart_toStartOf="@+id/txtPhone"
+        app:layout_constraintTop_toBottomOf="@+id/txtPhone" />
 
     <Spinner
         android:id="@+id/spinnerSexo"
@@ -73,46 +73,45 @@
         app:layout_constraintTop_toBottomOf="@+id/txtNome" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/txtDataNascimento"
         android:layout_width="139dp"
         android:layout_height="32dp"
+        android:background="@drawable/rounded"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="date"
         android:text="Data de nascimento"
         android:textSize="12sp"
-        android:background="@drawable/rounded"
         app:layout_constraintBottom_toBottomOf="@+id/spinnerSexo"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintStart_toEndOf="@+id/spinnerSexo"
         app:layout_constraintTop_toTopOf="@+id/spinnerSexo" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/txtAltura"
         android:layout_width="139dp"
         android:layout_height="32dp"
         android:layout_marginTop="25dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Altura"
-        android:textSize="12sp"
         android:background="@drawable/rounded"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@+id/spinnerSexo"
         app:layout_constraintStart_toStartOf="@+id/spinnerSexo"
         app:layout_constraintTop_toBottomOf="@+id/spinnerSexo" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/txtPeso"
         android:layout_width="139dp"
         android:layout_height="32dp"
+        android:background="@drawable/rounded"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:text="Peso"
         android:textSize="12sp"
-        android:background="@drawable/rounded"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName2"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintBottom_toBottomOf="@+id/txtAltura"
+        app:layout_constraintEnd_toEndOf="@+id/txtDataNascimento"
+        app:layout_constraintStart_toStartOf="@+id/txtDataNascimento"
+        app:layout_constraintTop_toTopOf="@+id/txtAltura" />
 
     <Spinner
         android:id="@+id/spinnerEstadoCivil"
@@ -121,9 +120,9 @@
         android:layout_marginTop="25dp"
         android:textSize="12sp"
         android:background="@drawable/rounded"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintEnd_toEndOf="@+id/txtAltura"
+        app:layout_constraintStart_toStartOf="@+id/txtAltura"
+        app:layout_constraintTop_toBottomOf="@+id/txtAltura" />
 
     <Spinner
         android:id="@+id/spinnerAvatar"
@@ -131,12 +130,12 @@
         android:layout_height="32dp"
         android:textSize="12sp"
         android:background="@drawable/rounded"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
+        app:layout_constraintEnd_toEndOf="@+id/txtPeso"
+        app:layout_constraintStart_toStartOf="@+id/txtPeso"
         app:layout_constraintTop_toTopOf="@+id/spinnerEstadoCivil" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/txtCidade"
         android:layout_width="139dp"
         android:layout_height="32dp"
         android:layout_marginTop="25dp"
@@ -156,10 +155,10 @@
         android:background="@drawable/rounded"
         app:layout_constraintEnd_toEndOf="@+id/spinnerAvatar"
         app:layout_constraintStart_toStartOf="@+id/spinnerAvatar"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName5" />
+        app:layout_constraintTop_toTopOf="@+id/txtCidade" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/txtEmail"
         android:layout_width="295dp"
         android:layout_height="32dp"
         android:layout_marginTop="25dp"
@@ -168,11 +167,11 @@
         android:textSize="12sp"
         android:background="@drawable/rounded"
         app:layout_constraintEnd_toEndOf="@+id/spinnerEstado"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+        app:layout_constraintStart_toStartOf="@+id/txtCidade"
+        app:layout_constraintTop_toBottomOf="@+id/txtCidade" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/txtPhone"
         android:layout_width="295dp"
         android:layout_height="32dp"
         android:layout_marginTop="25dp"
@@ -180,8 +179,8 @@
         android:inputType="phone"
         android:textSize="12sp"
         android:background="@drawable/rounded"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintEnd_toEndOf="@+id/txtEmail"
+        app:layout_constraintStart_toStartOf="@+id/txtEmail"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

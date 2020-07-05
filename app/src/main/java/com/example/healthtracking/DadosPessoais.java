@@ -4,14 +4,18 @@ package com.example.healthtracking;
 public class DadosPessoais{
     private String nome,
             sexo,
+            estadoCivil,
+            dataNascimento,
             cidade,
-            bairro,
             estado,
-            pais;
+            email,
+            telefone;
     private int idade,
             diaNascimento,
             mesNascimento,
             anoNascimento;
+    private double altura,
+                    peso;
 
     public String getNome() {
         return nome;
@@ -29,20 +33,28 @@ public class DadosPessoais{
         this.sexo = sexo;
     }
 
+    public String getEstadoCivil() {
+        return estadoCivil;
+    }
+
+    public void setEstadoCivil(String estadoCivil) {
+        this.estadoCivil = estadoCivil;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
     public String getCidade() {
         return cidade;
     }
 
     public void setCidade(String cidade) {
         this.cidade = cidade;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
     }
 
     public String getEstado() {
@@ -53,47 +65,41 @@ public class DadosPessoais{
         this.estado = estado;
     }
 
-    public String getPais() {
-        return pais;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPais(String pais) {
-        this.pais = pais;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public int getIdade() {
-        return idade;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
-    public int getDiaNascimento() {
-        return diaNascimento;
+    public double getAltura() {
+        return altura;
     }
 
-    public void setDiaNascimento(int diaNascimento) {
-        this.diaNascimento = diaNascimento;
+    public void setAltura(double altura) {
+        this.altura = altura;
     }
 
-    public int getMesNascimento() {
-        return mesNascimento;
+    public double getPeso() {
+        return peso;
     }
 
-    public void setMesNascimento(int mesNascimento) {
-        this.mesNascimento = mesNascimento;
+    public void setPeso(double peso) {
+        this.peso = peso;
     }
 
-    public int getAnoNascimento() {
-        return anoNascimento;
+    public void calcularIdade(String dataNascimento){
+
     }
-
-    public void setAnoNascimento(int anoNascimento) {
-        this.anoNascimento = anoNascimento;
-    }
-
-
 
     //public DadosPessoais(String nome, String sexo, String cidade, String bairro, String estado, String pais, int idade, int diaNascimento, int mesNascimento, int anoNascimento){}
 
