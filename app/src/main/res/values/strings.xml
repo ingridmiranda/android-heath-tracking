@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Health Tracking</string>
+
+    <string-array name="sexo_array">
+        <item>Sexo</item>
+        <item>Feminino</item>
+        <item>Masculino</item>
+    </string-array>
 </resources>
+
