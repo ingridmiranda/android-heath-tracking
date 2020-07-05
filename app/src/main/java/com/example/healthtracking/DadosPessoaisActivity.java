@@ -41,7 +41,7 @@ public class DadosPessoaisActivity extends Activity {
         MaskPattern mp02 = new MaskPattern("[0-2]");
         MaskPattern mp01 = new MaskPattern("[0-1]");
 
-        MaskFormatter mfData = new MaskFormatter("[0-1][0-9]/[0-1][0-9]/[0-2][0-9][0-9][0-9]");
+        MaskFormatter mfData = new MaskFormatter("[0-3][0-9]/[0-1][0-9]/[0-2][0-9][0-9][0-9]");
 
         mfData.registerPattern(mp01);
         mfData.registerPattern(mp03);
