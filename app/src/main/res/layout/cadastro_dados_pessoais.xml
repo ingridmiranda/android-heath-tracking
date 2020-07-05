@@ -4,43 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/texto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/tvNome"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="330dp"
-        android:layout_marginRight="330dp"
-        android:text="Nome:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/txtNome"
-        android:layout_width="318dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="10dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/tvNome"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvNome"
-        app:layout_constraintTop_toTopOf="@+id/tvNome" />
-
-    <Button
-        android:id="@+id/btSaveCadastro"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Salvar Cadastro"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNome"
-        app:layout_constraintVertical_bias="0.948" />
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
     <TextView
         android:id="@+id/tvCadastro"
@@ -48,10 +13,175 @@
         android:layout_height="wrap_content"
         android:text="Cadastro de usuário"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tvNome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.323" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="325dp"
+        android:layout_height="500dp"
+        android:background="#FFFFFF"
+        android:fadingEdgeLength="10dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvCadastro">
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/txtNome"
+        android:layout_width="295dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:background="@drawable/rounded"
+        android:text="Nome"
+        android:textColor="#707070"
+        android:textSize="12sp"
+        android:typeface="serif"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+
+    <Button
+        android:id="@+id/btSaveCadastro"
+        android:layout_width="299dp"
+        android:layout_height="65dp"
+        android:background="@drawable/rounded"
+        android:text="Termos de confirmação"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPhone"
+        app:layout_constraintStart_toStartOf="@+id/editTextPhone"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+
+    <Spinner
+        android:id="@+id/spinnerSexo"
+        android:layout_width="139dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:spinnerMode="dropdown"
+        android:textSize="12sp"
+        android:background="@drawable/rounded"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/txtNome" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="139dp"
+        android:layout_height="32dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Data de nascimento"
+        android:textSize="12sp"
+        android:background="@drawable/rounded"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerSexo"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toEndOf="@+id/spinnerSexo"
+        app:layout_constraintTop_toTopOf="@+id/spinnerSexo" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="139dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Altura"
+        android:textSize="12sp"
+        android:background="@drawable/rounded"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerSexo"
+        app:layout_constraintStart_toStartOf="@+id/spinnerSexo"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerSexo" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="139dp"
+        android:layout_height="32dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Peso"
+        android:textSize="12sp"
+        android:background="@drawable/rounded"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName2"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName2" />
+
+    <Spinner
+        android:id="@+id/spinnerEstadoCivil"
+        android:layout_width="139dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="25dp"
+        android:textSize="12sp"
+        android:background="@drawable/rounded"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+
+    <Spinner
+        android:id="@+id/spinnerAvatar"
+        android:layout_width="139dp"
+        android:layout_height="32dp"
+        android:textSize="12sp"
+        android:background="@drawable/rounded"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
+        app:layout_constraintTop_toTopOf="@+id/spinnerEstadoCivil" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName5"
+        android:layout_width="139dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Cidade"
+        android:textSize="12sp"
+        android:background="@drawable/rounded"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerEstadoCivil"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerEstadoCivil" />
+
+    <Spinner
+        android:id="@+id/spinnerEstado"
+        android:layout_width="139dp"
+        android:layout_height="32dp"
+        android:textSize="12sp"
+        android:background="@drawable/rounded"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerAvatar"
+        app:layout_constraintStart_toStartOf="@+id/spinnerAvatar"
+        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName5" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress"
+        android:layout_width="295dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:textSize="12sp"
+        android:background="@drawable/rounded"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerEstado"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName5"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="295dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:inputType="phone"
+        android:textSize="12sp"
+        android:background="@drawable/rounded"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
