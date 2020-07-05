@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,7 +34,7 @@ public class DadosPessoaisActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastro_dados_pessoais);
         Log.d(TAG, "Cadastro de dados");
-
+        final ImageView imgButton = findViewById(R.id.imageView);
         final EditText txtName = findViewById(R.id.txtNome);
         final EditText txtAltura = findViewById(R.id.txtAltura);
         final EditText txtDataNascimento = findViewById(R.id.txtDataNascimento);
@@ -265,37 +266,47 @@ public class DadosPessoaisActivity extends Activity {
         MaskTextWatcher mtwPhone = new MaskTextWatcher(txtPhone, smfPhone);
         txtPhone.addTextChangedListener(mtwPhone);
 
+        imgButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         final DadosPessoais dadosPessoais = new DadosPessoais();
 
         btSalvarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dadosPessoais.setNome(txtName.getText().toString());
-                dadosPessoais.setDataNascimento(txtDataNascimento.getText().toString());
-                dadosPessoais.setAltura(Double.parseDouble(txtAltura.getText().toString()));
-                dadosPessoais.setPeso(Double.parseDouble(txtPeso.getText().toString().replace(',', '.')));
-                dadosPessoais.setCidade(txtCidade.getText().toString());
-                dadosPessoais.setEmail(txtEmail.getText().toString());
-                dadosPessoais.setTelefone(txtPhone.getText().toString());
-
-                dadosPessoais.setSexo(spinnerSexo.getSelectedItem().toString());
-                dadosPessoais.setEstadoCivil(spinnerEstadoCivil.getSelectedItem().toString());
-                dadosPessoais.setEstado(spinnerEstado.getSelectedItem().toString());
-
-                Log.d(TAG, "Nome: " + dadosPessoais.getNome() + "\n" +
-                        "Sexo: " + dadosPessoais.getSexo() + "\n" +
-                        "Data de Nascimento: " + dadosPessoais.getDataNascimento() + "\n" +
-                        "Altura: " + dadosPessoais.getAltura() + "\n" +
-                        "Peso: " + dadosPessoais.getPeso() + "\n" +
-                        "Cidade: " + dadosPessoais.getCidade() + "\n" +
-                        "Estado Civil: " + dadosPessoais.getEstadoCivil() + "\n" +
-                        "Estado: "+ dadosPessoais.getEstado() + "\n" +
-                        "Email: " + dadosPessoais.getEmail() + "\n" +
-                        "Telefone: "+ dadosPessoais.getTelefone() + "\n");
-                if (isCampoVazio(txtName)){
+                if (isCampoVazio(txtName) || (spinnerSexo.getSelectedItem().toString().equals("Sexo")) || (isCampoVazio(txtDataNascimento)) ||
+                        (isCampoVazio(txtAltura)) || (isCampoVazio(txtPeso)) || (isCampoVazio(txtCidade)) ||
+                        (spinnerEstadoCivil.getSelectedItem().toString().equals("Estado civil")) || isCampoVazio(txtEmail) ||
+                        (spinnerEstado.getSelectedItem().toString().equals("Estado")) || (isCampoVazio(txtPhone))){
                     Toast.makeText(getApplicationContext(), "Campo obrigatório!", Toast.LENGTH_LONG).show();
                 } else {
+                    dadosPessoais.setNome(txtName.getText().toString());
+                    dadosPessoais.setDataNascimento(txtDataNascimento.getText().toString());
+                    dadosPessoais.setAltura(Double.parseDouble(txtAltura.getText().toString()));
+                    dadosPessoais.setPeso(Double.parseDouble(txtPeso.getText().toString().replace(',', '.')));
+                    dadosPessoais.setCidade(txtCidade.getText().toString());
+                    dadosPessoais.setEmail(txtEmail.getText().toString());
+                    dadosPessoais.setTelefone(txtPhone.getText().toString());
+
+                    dadosPessoais.setSexo(spinnerSexo.getSelectedItem().toString());
+                    dadosPessoais.setEstadoCivil(spinnerEstadoCivil.getSelectedItem().toString());
+                    dadosPessoais.setEstado(spinnerEstado.getSelectedItem().toString());
+
+                    Log.d(TAG, "Nome: " + dadosPessoais.getNome() + "\n" +
+                            "Sexo: " + dadosPessoais.getSexo() + "\n" +
+                            "Data de Nascimento: " + dadosPessoais.getDataNascimento() + "\n" +
+                            "Altura: " + dadosPessoais.getAltura() + "\n" +
+                            "Peso: " + dadosPessoais.getPeso() + "\n" +
+                            "Cidade: " + dadosPessoais.getCidade() + "\n" +
+                            "Estado Civil: " + dadosPessoais.getEstadoCivil() + "\n" +
+                            "Estado: "+ dadosPessoais.getEstado() + "\n" +
+                            "Email: " + dadosPessoais.getEmail() + "\n" +
+                            "Telefone: "+ dadosPessoais.getTelefone() + "\n");
                     Toast.makeText(getApplicationContext(), "Obrigada por se cadastrar!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
@@ -313,5 +324,6 @@ public class DadosPessoaisActivity extends Activity {
             return false;
         }
     }
+
 
 }
