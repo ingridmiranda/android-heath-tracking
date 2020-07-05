@@ -42,7 +42,6 @@
         android:ems="10"
         android:hint="Nome"
         android:inputType="textPersonName"
-        android:textColor="#707070"
         android:textSize="12sp"
         android:typeface="serif"
         android:paddingLeft="10dp"

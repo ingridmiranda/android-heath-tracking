@@ -101,6 +101,14 @@ public class DadosPessoaisActivity extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItemText = (String) parent.getItemAtPosition(position);
+                TextView tv = (TextView) view;
+                if(position == 0){
+                    // Set the hint text color gray
+                    tv.setTextColor(Color.GRAY);
+                }
+                else {
+                    tv.setTextColor(Color.BLACK);
+                }
             }
 
             @Override
@@ -149,6 +157,14 @@ public class DadosPessoaisActivity extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItemText = (String) parent.getItemAtPosition(position);
+                TextView tv = (TextView) view;
+                if(position == 0){
+                    // Set the hint text color gray
+                    tv.setTextColor(Color.GRAY);
+                }
+                else {
+                    tv.setTextColor(Color.BLACK);
+                }
             }
 
             @Override
@@ -197,6 +213,14 @@ public class DadosPessoaisActivity extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItemText = (String) parent.getItemAtPosition(position);
+                TextView tv = (TextView) view;
+                if(position == 0){
+                    // Set the hint text color gray
+                    tv.setTextColor(Color.GRAY);
+                }
+                else {
+                    tv.setTextColor(Color.BLACK);
+                }
             }
 
             @Override
@@ -249,18 +273,26 @@ public class DadosPessoaisActivity extends Activity {
             public void onClick(View v) {
                 dadosPessoais.setNome(txtName.getText().toString());
                 dadosPessoais.setDataNascimento(txtDataNascimento.getText().toString());
-                dadosPessoais.setEmail(txtEmail.getText().toString());
+                dadosPessoais.setAltura(Double.parseDouble(txtAltura.getText().toString()));
+                dadosPessoais.setPeso(Double.parseDouble(txtPeso.getText().toString().replace(',', '.')));
                 dadosPessoais.setCidade(txtCidade.getText().toString());
+                dadosPessoais.setEmail(txtEmail.getText().toString());
                 dadosPessoais.setTelefone(txtPhone.getText().toString());
 
                 dadosPessoais.setSexo(spinnerSexo.getSelectedItem().toString());
                 dadosPessoais.setEstadoCivil(spinnerEstadoCivil.getSelectedItem().toString());
                 dadosPessoais.setEstado(spinnerEstado.getSelectedItem().toString());
 
-                String name = dadosPessoais.getNome();
-                Log.d(TAG,  "nome: " + name);
-                Log.d(TAG, dadosPessoais.getCidade() + dadosPessoais.getDataNascimento() + dadosPessoais.getEmail() + dadosPessoais.getTelefone()
-                        + dadosPessoais.getSexo() + dadosPessoais.getEstadoCivil() + dadosPessoais.getEstado());
+                Log.d(TAG, "Nome: " + dadosPessoais.getNome() + "\n" +
+                        "Sexo: " + dadosPessoais.getSexo() + "\n" +
+                        "Data de Nascimento: " + dadosPessoais.getDataNascimento() + "\n" +
+                        "Altura: " + dadosPessoais.getAltura() + "\n" +
+                        "Peso: " + dadosPessoais.getPeso() + "\n" +
+                        "Cidade: " + dadosPessoais.getCidade() + "\n" +
+                        "Estado Civil: " + dadosPessoais.getEstadoCivil() + "\n" +
+                        "Estado: "+ dadosPessoais.getEstado() + "\n" +
+                        "Email: " + dadosPessoais.getEmail() + "\n" +
+                        "Telefone: "+ dadosPessoais.getTelefone() + "\n");
                 if (isCampoVazio(txtName)){
                     Toast.makeText(getApplicationContext(), "Campo obrigatório!", Toast.LENGTH_LONG).show();
                 } else {
