@@ -41,19 +41,24 @@ public class DadosPessoaisActivity extends Activity {
         final EditText txtCidade = findViewById(R.id.txtCidade);
         final EditText txtPeso = findViewById(R.id.txtPeso);
         final EditText txtPhone = findViewById(R.id.txtPhone);
-        final Button btSalvarCadastro = findViewById(R.id.btSaveCadastro);
-
 
         final Spinner spinnerSexo = findViewById(R.id.spinnerSexo);
         final Spinner spinnerEstadoCivil = findViewById(R.id.spinnerEstadoCivil);
+        final Spinner spinnerEstado = findViewById(R.id.spinnerEstado);
 
+        final Button btSalvarCadastro = findViewById(R.id.btSaveCadastro);
 
         final String[] array_sexo = new String[]{"Sexo", "Feminino", "Masculino"};
-        final String[] array_estadoCivil = new String[]{"Estado civil", "Solteiro(a)", "Casado(a)", "Separado(a)", "Divorciado(a)", "Viúvo(a)", "União estável"};
-
+        final String[] array_estadoCivil = new String[]{"Estado civil", "Solteiro(a)", "Casado(a)", "Separado(a)", "Divorciado(a)", "Viúvo(a)",
+                "União estável"};
+        final String[] array_estado = new String[]{"Estado", "Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal",
+                "Espirito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná",
+                "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina",
+                "São Paulo", "Sergipe", "Tocantins"};
 
         final List<String> sexoList = new ArrayList<>(Arrays.asList(array_sexo));
         final List<String> estadoCivilList = new ArrayList<>(Arrays.asList(array_estadoCivil));
+        final List<String> estadoList = new ArrayList<>(Arrays.asList(array_estado));
 
 
         /**
@@ -137,7 +142,7 @@ public class DadosPessoaisActivity extends Activity {
                 return view;
             }
         };
-        spinnerArrayAdapterSexo.setDropDownViewResource(R.layout.spinner_item);
+        spinnerArrayAdapterEstadoCivil.setDropDownViewResource(R.layout.spinner_item);
         spinnerEstadoCivil.setAdapter(spinnerArrayAdapterEstadoCivil);
 
         spinnerEstadoCivil.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -151,6 +156,53 @@ public class DadosPessoaisActivity extends Activity {
             }
         });
 
+
+        /**
+         * Inicializando um ArrayAdapter para Estado
+         */
+        final ArrayAdapter<String> spinnerArrayAdapterEstado = new ArrayAdapter<String>(
+                this,R.layout.spinner_item,estadoList){
+            @Override
+            public boolean isEnabled(int position){
+                if(position == 0)
+                {
+                    // Disable the first item from Spinner
+                    // First item will be use for hint
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            @Override
+            public View getDropDownView(int position, View convertView,
+                                        ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView tv = (TextView) view;
+                if(position == 0){
+                    // Set the hint text color gray
+                    tv.setTextColor(Color.GRAY);
+                }
+                else {
+                    tv.setTextColor(Color.BLACK);
+                }
+                return view;
+            }
+        };
+        spinnerArrayAdapterEstado.setDropDownViewResource(R.layout.spinner_item);
+        spinnerEstado.setAdapter(spinnerArrayAdapterEstado);
+
+        spinnerEstado.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItemText = (String) parent.getItemAtPosition(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
 
 
         /**
@@ -203,11 +255,12 @@ public class DadosPessoaisActivity extends Activity {
 
                 dadosPessoais.setSexo(spinnerSexo.getSelectedItem().toString());
                 dadosPessoais.setEstadoCivil(spinnerEstadoCivil.getSelectedItem().toString());
+                dadosPessoais.setEstado(spinnerEstado.getSelectedItem().toString());
 
                 String name = dadosPessoais.getNome();
                 Log.d(TAG,  "nome: " + name);
                 Log.d(TAG, dadosPessoais.getCidade() + dadosPessoais.getDataNascimento() + dadosPessoais.getEmail() + dadosPessoais.getTelefone()
-                        + dadosPessoais.getSexo() + dadosPessoais.getEstadoCivil());
+                        + dadosPessoais.getSexo() + dadosPessoais.getEstadoCivil() + dadosPessoais.getEstado());
                 if (isCampoVazio(txtName)){
                     Toast.makeText(getApplicationContext(), "Campo obrigatório!", Toast.LENGTH_LONG).show();
                 } else {
