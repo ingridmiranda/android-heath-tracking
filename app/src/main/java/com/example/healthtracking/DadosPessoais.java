@@ -1,6 +1,13 @@
 package com.example.healthtracking;
 
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
+import java.time.LocalDate;
+import java.time.Period;
+
 public class DadosPessoais{
     private String nome,
             sexo,
@@ -97,10 +104,19 @@ public class DadosPessoais{
         this.peso = peso;
     }
 
-    public void calcularIdade(String dataNascimento){
+    public int getIdade(){
+        String dataNascimento = getDataNascimento();
+        int dia = Integer.parseInt(dataNascimento.substring(0, 2));
+        int mes = Integer.parseInt(dataNascimento.substring(3, 5));
+        int ano = Integer.parseInt(dataNascimento.substring(6, 10));
 
+        LocalDate nascimento = LocalDate.of(ano, mes, dia);
+        LocalDate atual = LocalDate.now();
+        Period periodo = Period.between(nascimento, atual);
+        int idade = periodo.getYears();
+
+        return idade;
     }
-
     //public DadosPessoais(String nome, String sexo, String cidade, String bairro, String estado, String pais, int idade, int diaNascimento, int mesNascimento, int anoNascimento){}
 
 }

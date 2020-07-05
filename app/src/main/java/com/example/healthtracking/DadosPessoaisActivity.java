@@ -296,6 +296,7 @@ public class DadosPessoaisActivity extends Activity {
                     dadosPessoais.setSexo(spinnerSexo.getSelectedItem().toString());
                     dadosPessoais.setEstadoCivil(spinnerEstadoCivil.getSelectedItem().toString());
                     dadosPessoais.setEstado(spinnerEstado.getSelectedItem().toString());
+                    
 
                     Log.d(TAG, "Nome: " + dadosPessoais.getNome() + "\n" +
                             "Sexo: " + dadosPessoais.getSexo() + "\n" +
@@ -306,7 +307,8 @@ public class DadosPessoaisActivity extends Activity {
                             "Estado Civil: " + dadosPessoais.getEstadoCivil() + "\n" +
                             "Estado: "+ dadosPessoais.getEstado() + "\n" +
                             "Email: " + dadosPessoais.getEmail() + "\n" +
-                            "Telefone: "+ dadosPessoais.getTelefone() + "\n");
+                            "Telefone: "+ dadosPessoais.getTelefone() + "\n" +
+                            "Idade: " + dadosPessoais.getIdade());
                     Toast.makeText(getApplicationContext(), "Obrigada por se cadastrar!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
