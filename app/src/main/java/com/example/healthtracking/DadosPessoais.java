@@ -5,6 +5,7 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -116,6 +117,15 @@ public class DadosPessoais{
         int idade = periodo.getYears();
 
         return idade;
+    }
+
+    public double getIMC(){
+        double peso = getPeso();
+        double altura = getAltura();
+        DecimalFormat df = new DecimalFormat("0.00");
+        //double imc = peso/(altura*altura);
+        double imc = Double.parseDouble(df.format(peso/(altura*altura)));
+        return imc;
     }
     //public DadosPessoais(String nome, String sexo, String cidade, String bairro, String estado, String pais, int idade, int diaNascimento, int mesNascimento, int anoNascimento){}
 
