@@ -43,13 +43,23 @@ public class DadosPessoaisActivity extends Activity {
         final EditText txtPhone = findViewById(R.id.txtPhone);
         final Button btSalvarCadastro = findViewById(R.id.btSaveCadastro);
 
+
         final Spinner spinnerSexo = findViewById(R.id.spinnerSexo);
+        final Spinner spinnerEstadoCivil = findViewById(R.id.spinnerEstadoCivil);
+
 
         final String[] array_sexo = new String[]{"Sexo", "Feminino", "Masculino"};
-        final List<String> sexoList = new ArrayList<>(Arrays.asList(array_sexo));
+        final String[] array_estadoCivil = new String[]{"Estado civil", "Solteiro(a)", "Casado(a)", "Separado(a)", "Divorciado(a)", "Viúvo(a)", "União estável"};
 
-        // Initializing an ArrayAdapter
-        final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
+
+        final List<String> sexoList = new ArrayList<>(Arrays.asList(array_sexo));
+        final List<String> estadoCivilList = new ArrayList<>(Arrays.asList(array_estadoCivil));
+
+
+        /**
+         * Inicializando um ArrayAdapter para Sexo
+         */
+        final ArrayAdapter<String> spinnerArrayAdapterSexo = new ArrayAdapter<String>(
                 this,R.layout.spinner_item,sexoList){
             @Override
             public boolean isEnabled(int position){
@@ -79,34 +89,69 @@ public class DadosPessoaisActivity extends Activity {
                 return view;
             }
         };
-        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
-        spinnerSexo.setAdapter(spinnerArrayAdapter);
+        spinnerArrayAdapterSexo.setDropDownViewResource(R.layout.spinner_item);
+        spinnerSexo.setAdapter(spinnerArrayAdapterSexo);
 
         spinnerSexo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItemText = (String) parent.getItemAtPosition(position);
-                // If user change the default selection
-                // First item is disable and it is used for hint
-                if(position > 0){
-                    // Notify the selected item text
-                    Toast.makeText
-                            (getApplicationContext(), "Selected : " + selectedItemText, Toast.LENGTH_SHORT)
-                            .show();
-                }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
 
-/*
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.sexo_array, android.R.layout.simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerSexo.setAdapter(adapter);
-*/
+
+        /**
+         * Inicializando um ArrayAdapter para Estado Civil
+         */
+        final ArrayAdapter<String> spinnerArrayAdapterEstadoCivil = new ArrayAdapter<String>(
+                this,R.layout.spinner_item,estadoCivilList){
+            @Override
+            public boolean isEnabled(int position){
+                if(position == 0)
+                {
+                    // Disable the first item from Spinner
+                    // First item will be use for hint
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            @Override
+            public View getDropDownView(int position, View convertView,
+                                        ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView tv = (TextView) view;
+                if(position == 0){
+                    // Set the hint text color gray
+                    tv.setTextColor(Color.GRAY);
+                }
+                else {
+                    tv.setTextColor(Color.BLACK);
+                }
+                return view;
+            }
+        };
+        spinnerArrayAdapterSexo.setDropDownViewResource(R.layout.spinner_item);
+        spinnerEstadoCivil.setAdapter(spinnerArrayAdapterEstadoCivil);
+
+        spinnerEstadoCivil.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItemText = (String) parent.getItemAtPosition(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+
 
         /**
         * Criação de máscara para data de nascimento
@@ -157,11 +202,12 @@ public class DadosPessoaisActivity extends Activity {
                 dadosPessoais.setTelefone(txtPhone.getText().toString());
 
                 dadosPessoais.setSexo(spinnerSexo.getSelectedItem().toString());
+                dadosPessoais.setEstadoCivil(spinnerEstadoCivil.getSelectedItem().toString());
 
                 String name = dadosPessoais.getNome();
                 Log.d(TAG,  "nome: " + name);
                 Log.d(TAG, dadosPessoais.getCidade() + dadosPessoais.getDataNascimento() + dadosPessoais.getEmail() + dadosPessoais.getTelefone()
-                        + dadosPessoais.getSexo());
+                        + dadosPessoais.getSexo() + dadosPessoais.getEstadoCivil());
                 if (isCampoVazio(txtName)){
                     Toast.makeText(getApplicationContext(), "Campo obrigatório!", Toast.LENGTH_LONG).show();
                 } else {
