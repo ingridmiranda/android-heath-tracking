@@ -11,8 +11,9 @@
         android:id="@+id/tvCadastro"
         android:layout_width="wrap_content"
         android:layout_height="27dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="70dp"
         android:text="Dados pessoais"
+        android:textColor="#707070"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -29,9 +30,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvCadastro">
-
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="@+id/tvCadastro"/>
 
     <EditText
         android:id="@+id/txtNome"
@@ -42,7 +41,7 @@
         android:ems="10"
         android:hint="Nome"
         android:inputType="textPersonName"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:typeface="serif"
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,12 +64,12 @@
         android:layout_width="139dp"
         android:layout_height="32dp"
         android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
         android:layout_marginTop="25dp"
         android:background="@drawable/rounded"
+        android:dropDownSelector="@android:drawable/arrow_down_float"
         android:paddingLeft="10dp"
-        android:spinnerMode="dropdown"
-        android:textSize="12sp"
+        android:spinnerMode="dialog"
+        android:textSize="14sp"
         android:typeface="serif"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/txtNome" />
@@ -83,7 +82,7 @@
         android:ems="10"
         android:inputType="date"
         android:hint="Data de nascimento"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:paddingLeft="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/spinnerSexo"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
@@ -99,7 +98,7 @@
         android:ems="10"
         android:hint="Altura"
         android:inputType="numberDecimal"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="@+id/spinnerSexo"
         app:layout_constraintStart_toStartOf="@+id/spinnerSexo"
@@ -113,7 +112,7 @@
         android:ems="10"
         android:inputType="numberDecimal"
         android:hint="Peso"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:paddingLeft="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/txtAltura"
         app:layout_constraintEnd_toEndOf="@+id/txtDataNascimento"
@@ -125,7 +124,7 @@
         android:layout_width="139dp"
         android:layout_height="32dp"
         android:layout_marginTop="25dp"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:paddingLeft="10dp"
         android:background="@drawable/rounded"
         app:layout_constraintEnd_toEndOf="@+id/txtAltura"
@@ -136,7 +135,7 @@
         android:id="@+id/spinnerAvatar"
         android:layout_width="139dp"
         android:layout_height="32dp"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:paddingLeft="10dp"
         android:background="@drawable/rounded"
         app:layout_constraintEnd_toEndOf="@+id/txtPeso"
@@ -151,7 +150,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Cidade"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:paddingLeft="10dp"
         android:background="@drawable/rounded"
         app:layout_constraintEnd_toEndOf="@+id/spinnerEstadoCivil"
@@ -161,9 +160,10 @@
         android:id="@+id/spinnerEstado"
         android:layout_width="139dp"
         android:layout_height="32dp"
-        android:textSize="12sp"
-        android:paddingLeft="10dp"
         android:background="@drawable/rounded"
+        android:paddingLeft="10dp"
+        android:spinnerMode="dialog"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/spinnerAvatar"
         app:layout_constraintStart_toStartOf="@+id/spinnerAvatar"
         app:layout_constraintTop_toTopOf="@+id/txtCidade" />
@@ -175,7 +175,7 @@
         android:layout_marginTop="25dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:background="@drawable/rounded"
         android:hint="Email"
         android:paddingLeft="10dp"
@@ -192,19 +192,63 @@
         android:ems="10"
         android:hint="Telefone"
         android:inputType="phone"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="@+id/txtEmail"
         app:layout_constraintStart_toStartOf="@+id/txtEmail"
         app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imgSeta"
+        android:layout_width="14dp"
+        android:layout_height="12dp"
+        android:layout_marginStart="115dp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerSexo"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerSexo"
+        app:layout_constraintStart_toStartOf="@+id/spinnerSexo"
+        app:layout_constraintTop_toTopOf="@+id/spinnerSexo"
+        android:src="@drawable/seta" />
+
+    <ImageView
+        android:id="@+id/imgSeta2"
+        android:layout_width="14dp"
+        android:layout_height="12dp"
+        android:layout_marginStart="115dp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerEstadoCivil"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerEstadoCivil"
+        app:layout_constraintStart_toStartOf="@+id/spinnerEstadoCivil"
+        app:layout_constraintTop_toTopOf="@+id/spinnerEstadoCivil"
+        android:src="@drawable/seta" />
+
+    <ImageView
+        android:id="@+id/imgSeta3"
+        android:layout_width="14dp"
+        android:layout_height="12dp"
+        android:layout_marginStart="115dp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerAvatar"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerAvatar"
+        app:layout_constraintStart_toStartOf="@+id/spinnerAvatar"
+        app:layout_constraintTop_toTopOf="@+id/spinnerAvatar"
+        android:src="@drawable/seta" />
+
+    <ImageView
+        android:id="@+id/imgSeta4"
+        android:layout_width="14dp"
+        android:layout_height="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerEstado"
+        app:layout_constraintEnd_toEndOf="@+id/imgSeta3"
+        app:layout_constraintStart_toStartOf="@+id/imgSeta3"
+        app:layout_constraintTop_toTopOf="@+id/spinnerEstado"
+        android:src="@drawable/seta" />
+
+    <ImageView
+        android:id="@+id/imgVoltar"
         android:layout_width="22dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/tvCadastro"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="@+id/tvCadastro"
-        app:srcCompat="?attr/actionModeCloseDrawable" />
+        android:src="@drawable/setavoltar" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,6 @@
     android:layout_height="wrap_content"
     android:textStyle="normal"
     android:textColor="#808080"
-    android:textSize="12sp"
+    android:textSize="14sp"
     android:fontFamily="serif"
     />

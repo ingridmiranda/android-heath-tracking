@@ -3,6 +3,7 @@ package com.example.healthtracking;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,7 +35,6 @@ public class DadosPessoaisActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastro_dados_pessoais);
         Log.d(TAG, "Cadastro de dados");
-        final ImageView imgButton = findViewById(R.id.imageView);
         final EditText txtName = findViewById(R.id.txtNome);
         final EditText txtAltura = findViewById(R.id.txtAltura);
         final EditText txtDataNascimento = findViewById(R.id.txtDataNascimento);
@@ -47,6 +47,7 @@ public class DadosPessoaisActivity extends Activity {
         final Spinner spinnerEstadoCivil = findViewById(R.id.spinnerEstadoCivil);
         final Spinner spinnerEstado = findViewById(R.id.spinnerEstado);
 
+        final ImageView imgVoltar = findViewById(R.id.imgVoltar);
         final Button btSalvarCadastro = findViewById(R.id.btSaveCadastro);
 
         final String[] array_sexo = new String[]{"Sexo", "Feminino", "Masculino"};
@@ -266,10 +267,10 @@ public class DadosPessoaisActivity extends Activity {
         MaskTextWatcher mtwPhone = new MaskTextWatcher(txtPhone, smfPhone);
         txtPhone.addTextChangedListener(mtwPhone);
 
-        imgButton.setOnClickListener(new View.OnClickListener() {
+        imgVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
         });
