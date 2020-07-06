@@ -3,11 +3,14 @@ package com.example.healthtracking;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +33,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        /*ControleBanco crud = new ControleBanco(getBaseContext());
+        Cursor cursor = crud.carregaDados();
+
+        if (cursor.moveToFirst()) {
+            String str = cursor.getString(cursor.getColumnIndex("content"));
+            Log.d(TAG, "String: "+str);
+        }*/
+
+
 
 
 

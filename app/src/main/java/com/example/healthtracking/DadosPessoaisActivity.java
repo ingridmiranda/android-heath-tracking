@@ -2,6 +2,7 @@ package com.example.healthtracking;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
@@ -286,6 +287,7 @@ public class DadosPessoaisActivity extends Activity {
                         (spinnerEstado.getSelectedItem().toString().equals("Estado")) || (isCampoVazio(txtPhone))){
                     Toast.makeText(getApplicationContext(), "Campo obrigatório!", Toast.LENGTH_LONG).show();
                 } else {
+                    ControleBanco crud = new ControleBanco(getBaseContext());
                     dadosPessoais.setNome(txtName.getText().toString());
                     dadosPessoais.setDataNascimento(txtDataNascimento.getText().toString());
                     dadosPessoais.setAltura(Double.parseDouble(txtAltura.getText().toString()));
@@ -297,6 +299,12 @@ public class DadosPessoaisActivity extends Activity {
                     dadosPessoais.setSexo(spinnerSexo.getSelectedItem().toString());
                     dadosPessoais.setEstadoCivil(spinnerEstadoCivil.getSelectedItem().toString());
                     dadosPessoais.setEstado(spinnerEstado.getSelectedItem().toString());
+
+                    String nome = dadosPessoais.getNome();
+                    String sexo = dadosPessoais.getSexo();
+                    int idade = dadosPessoais.getIdade();
+                    String resultado = crud.insereDado(nome, sexo, idade);
+                    Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
 
 
                     Log.d(TAG, "Nome: " + dadosPessoais.getNome() + "\n" +
@@ -311,6 +319,16 @@ public class DadosPessoaisActivity extends Activity {
                             "Telefone: "+ dadosPessoais.getTelefone() + "\n" +
                             "Idade: " + dadosPessoais.getIdade() + "\n" +
                             "IMC: " + dadosPessoais.getIMC());
+
+                    ControleBanco crud1 = new ControleBanco(getBaseContext());
+                    Cursor cursor = crud1.carregaDados();
+
+                    if (cursor.moveToFirst()) {
+                        Log.d(TAG, "CHEGOU");
+                        String str = cursor.getString(cursor.getColumnIndex("nome"));
+                        Log.d(TAG, "String: " + str);
+                    }
+
                     Toast.makeText(getApplicationContext(), "Obrigada por se cadastrar!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
