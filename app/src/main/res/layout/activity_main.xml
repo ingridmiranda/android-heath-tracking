@@ -16,4 +16,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btProntuario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+        android:text="Meu prontuário"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btCadastro"
+        app:layout_constraintStart_toStartOf="@+id/btCadastro"
+        app:layout_constraintTop_toBottomOf="@+id/btCadastro" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

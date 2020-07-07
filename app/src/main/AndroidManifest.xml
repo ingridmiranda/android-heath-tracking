@@ -16,12 +16,17 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".MeuProntuarioActivity"
+            android:label="meuProntuario"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"
+            ></activity>
+
         <activity android:name=".DadosPessoaisActivity"
             android:label="dadosPessoais"
-            android:theme="@android:style/Theme.NoTitleBar"
+            android:theme="@style/AppTheme"
             android:screenOrientation="portrait"
-            >
-        </activity>
+            ></activity>
 
     </application>
 

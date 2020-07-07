@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "Main activity start");
 
         Button btCadastro = findViewById(R.id.btCadastro);
+        Button btProntuario = findViewById(R.id.btProntuario);
 
         btCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,18 +35,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*ControleBanco crud = new ControleBanco(getBaseContext());
-        Cursor cursor = crud.carregaDados();
-
-        if (cursor.moveToFirst()) {
-            String str = cursor.getString(cursor.getColumnIndex("content"));
-            Log.d(TAG, "String: "+str);
-        }*/
-
-
+        btProntuario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(getApplicationContext(), MeuProntuarioActivity.class);
+                startActivity(intent2);
+            }
+        });
 
 
-
-
-    }
+            }
 }
